@@ -1,0 +1,40 @@
+1- given a list of numbers, write a program to find the mean of the numbers in list
+
+2- given a list of numbers unsorted, write a program to find the median of the numbers in list
+
+3- from a list of numbers create 2 list , one containing only the even numbers and other only the odd numbers
+
+4- create a dictionary to store following attributes of CSK 
+key "CSK" ; attributes : team full name , captain , playing 11 for each match(name of players), oppenont name (assume there are 3 matches only against MI, RCB , GT ) and result won/loss
+
+5- in the previous dictonary add one more item for RCB. you can choose any 3 opponents.
+
+6- write a program to take a positive number as input from user. if the user enters negative number then keep promting him to enter positive number until he enters the positive number and then print the same
+
+7- consider the below list of list conatins following information :
+
+1. The name of a university 
+2. The total number of enrolled students
+3. The annual tuition fees
+
+universities = [
+['California Institute of Technology', 2175, 37704],
+['Harvard', 19627, 39849],
+['Massachusetts Institute of Technology', 10566, 40732],
+['Princeton', 7802, 37000],
+['Rice', 5879, 35551],
+['Stanford', 19535, 40569],
+['Yale', 11701, 40500]
+]
+
+write a program to print follwoing information :
+1- a list of all the universitites  : ['California Institute of Technology','Harvard',..so on]
+2- total number of student entrolled in all the unversities together 
+3- mean of tuition fees
+
+
+8- write a program to convert above universities list to a dictionary. the keys should be the name of the university
+
+9-  write a program that reverses a given string. For example, if the input is "Hello" from user, the output should be "olleH"
+
+10- write a program that finds the largest number in a list(unsorted) of integers without using sort/sorted method.

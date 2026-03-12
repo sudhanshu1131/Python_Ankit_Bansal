@@ -1,0 +1,31 @@
+Note : use the orders dataset for below problems:
+
+1- create a new column in the orders dataframe with name profit_flag. Set its value as 1 if profit is greater than 0 else set 0.
+
+2- in the orders data frame rename column names to upper case ..eg order_id should be ORDER_ID
+
+3- again change the column names back to lower case
+
+4- sort the dataframe column by profit in descending order 
+
+5- sort the dataframe column by sales in ascending order , in case of a tie it should be sorted by profit in descending order 
+
+6- reset the index to original state
+
+7- create a column as profit_category . sets it value as below:
+
+if profit < 0 then 'loss'
+if profit between 0 and 100 then 'low profit' 
+if profit between 100 and 500 then 'medium profit'
+else high profit 
+
+8- create a new column sales_profit_ratio and set its value as (profit/sales)*100
+
+9- find all the orders where customer name starts with 'D' and ends with 'e'
+
+10- create a new column order_year and populate it with year of order_date. ( hint : use the series objects slice method )
+
+11 - delete column sales_profit_ratio from the dataframe
+
+12- delete all the rows where profit is negative 
+

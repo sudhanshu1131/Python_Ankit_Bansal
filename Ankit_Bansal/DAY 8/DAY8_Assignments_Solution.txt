@@ -1,0 +1,172 @@
+use orders.txt dataset for below problems
+1- write a program to fetch all the orders with indexes  multiple of 100 eg : 100,200,300,400..... . Display order_id , category and sales columns
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt')
+
+# Fetch orders with indexes that are multiples of 100
+filtered_df = df[df.index % 100 == 0]
+
+# Display 'order_id', 'category', and 'sales' columns
+result = filtered_df[['order_id', 'category', 'sales']]
+
+print(result)
+
+
+2- write a program to find all orders in furniture category with sales amount between 1000 and 1200
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Filter orders in the furniture category with sales between 1000 and 1200
+
+fc=(df['category'] == 'furniture') & (df['sales'] >= 1000) & (df['sales'] <= 1200)
+
+filtered_df = df[fc]
+
+# Display the filtered orders
+print(filtered_df)
+
+
+3- write a program to find all the orders where there was a loss (profit<0) in the city of new york , Los Angeles and Seattle
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Filter orders with a loss (profit < 0) in the cities of New York, Los Angeles, and Seattle
+filtered_df = df[(df['profit'] < 0) & (df['city'].isin(['New York', 'Los Angeles', 'Seattle']))]
+
+# Display the filtered orders
+print(filtered_df)
+
+
+4- write a program to find unique list of cities where orders are placed for Office Supplies category.
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Filter orders in the Office Supplies category
+office_supplies_df = df[df['category'] == 'Office Supplies']
+
+# Get the unique list of cities
+unique_cities = office_supplies_df['city'].unique()
+
+# Display the unique list of cities
+print(unique_cities)
+
+
+5- in the new york city how many orders were placed in each of the category 
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Filter orders placed in New York City
+new_york_orders = df[df['city'] == 'New York']
+
+# Count the number of orders in each category
+category_counts = new_york_orders['category'].value_counts()
+
+# Display the number of orders in each category
+print(category_counts)
+
+
+6- set the index of orders dataframe to order_id and fetch order details(all columns) of following list of orders : 
+CA-2019-115742
+CA-2020-111682
+CA-2019-149587
+US-2020-150147
+CA-2020-138520
+
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Set the index of the DataFrame to 'order_id'
+df.set_index('order_id', inplace=True)
+
+# List of orders to fetch details for
+order_list = ['CA-2019-115742', 'CA-2020-111682', 'CA-2019-149587', 'US-2020-150147', 'CA-2020-138520']
+
+# Fetch order details for the specified list of orders
+order_details = df.loc[order_list]
+
+# Display the order details
+print(order_details)
+
+
+7- for the previous question display columns order id, order date , sales and category columns in the given order
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Set the index of the DataFrame to 'order_id'
+df.set_index('order_id', inplace=True)
+
+# List of orders to fetch details for
+order_list = ['CA-2019-115742', 'CA-2020-111682', 'CA-2019-149587', 'US-2020-150147', 'CA-2020-138520']
+
+# Fetch order details for the specified list of orders
+order_details = df.loc[order_list, ['order_date', 'sales', 'category']]
+
+# Display the order details
+print(order_details)
+
+
+8- for the previous(6th) question display all the columns from order_date to city (as per the order in dataset)
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Set the index of the DataFrame to 'order_id'
+df.set_index('order_id', inplace=True)
+
+# List of orders to fetch details for
+order_list = ['CA-2019-115742', 'CA-2020-111682', 'CA-2019-149587', 'US-2020-150147', 'CA-2020-138520']
+
+# Fetch order details for the specified list of orders
+order_details = df.loc[order_list, 'order_date':'city']
+
+# Display the order details
+print(order_details)
+
+
+9- sort the index (order id) in descending order for the dataframe 
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Set the index of the DataFrame to 'order_id'
+df.set_index('order_id', inplace=True)
+
+# Sort the index in descending order
+df_sorted = df.sort_index(ascending=False)
+
+# Display the sorted DataFrame
+print(df_sorted)
+
+
+
+10- write the result of previous question into a csv file in your local machine
+
+# Write the sorted DataFrame to a CSV file
+df_sorted.to_csv('sorted_orders.csv')
+
+
+

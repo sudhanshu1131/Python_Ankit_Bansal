@@ -1,0 +1,238 @@
+1- given a list of numbers, write a program to find the mean of the numbers in list
+
+solution:
+# Example list of numbers
+numbers = [1, 2, 3, 4, 5]
+
+# Calculate the mean of the numbers
+total = sum(numbers)
+mean = total / len(numbers)
+
+# Display the mean
+print("Mean:", mean)
+
+
+2- given a list of numbers unsorted, write a program to find the median of the numbers in list
+
+solution :
+# Example list of numbers
+numbers = [5, 1, 3, 2, 4]
+
+# Sort the list in ascending order
+numbers.sort()
+
+# Calculate the median
+length = len(numbers)
+if length % 2 == 0:
+    median = (numbers[length//2 - 1] + numbers[length//2]) / 2
+else:
+    median = numbers[length//2]
+
+# Display the median
+print("Median:", median)
+
+
+
+
+3- from a list of numbers create 2 list , one containing only the even numbers and other only the odd numbers
+
+solution:
+
+# Example list of numbers
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Create empty lists for even and odd numbers
+even_numbers = []
+odd_numbers = []
+
+# Iterate through the numbers and classify them as even or odd
+for number in numbers:
+    if number % 2 == 0:
+        even_numbers.append(number)
+    else:
+        odd_numbers.append(number)
+
+# Display the even numbers list
+print("Even numbers:", even_numbers)
+
+# Display the odd numbers list
+print("Odd numbers:", odd_numbers)
+
+
+
+4- create a dictionary to store following attributes of CSK 
+key "CSK" ; attributes : team full name , captain , playing 11 for each match(name of players), oppenont name (assume there are 3 matches only against MI, RCB , GT ) and result won/loss
+
+solution:
+
+# Create a dictionary for CSK
+csk = {
+    "team_name": "Chennai Super Kings",
+    "captain": "MS Dhoni",
+    "playing_11": [
+        ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"],  # Match 1
+        ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"],  # Match 2
+        ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"],  # Match 3
+    ],
+    "opponents": ["MI", "RCB", "GT"],
+    "results": ["Won", "Loss", "Won"]
+}
+
+#Note: there can be other way of storing the same information and that is also fine based on your end goal.
+
+5- in the previous dictonary add one more item for RCB. you can choose any 3 opponents.
+
+IPL = {"CSK":{
+    "team_name": "Chennai Super Kings",
+    "captain": "MS Dhoni",
+    "playing_11": [
+        ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"],  # Match 1
+        ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"],  # Match 2
+        ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"],  # Match 3
+    ],
+    "opponents": ["MI", "RCB", "GT"],
+    "results": ["Won", "Loss", "Won"]
+},
+"RCB":{
+    "team_name": "Royal Challengers Bangalore",
+    "captain": "Virat Kohli",
+    "playing_11": [
+        ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"],  # Match 1
+        ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"],  # Match 2
+        ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"],  # Match 3
+    ],
+    "opponents": ["MI", "CSK", "GT"],
+    "results": ["Loss", "Loss", "Loss"]
+}
+
+}
+
+6- write a program to take a positive number as input from user. if the user enters negative number then keep promting him to enter positive number until he enters the positive number and then print the same:
+
+solution:
+# Prompt the user to enter a positive number
+number = int(input("Enter a positive number: "))
+
+# Keep prompting until a positive number is entered
+while number <= 0:
+    print("Invalid input. Please enter a positive number.")
+    number = int(input("Enter a positive number: "))
+
+# Print the positive number
+print("The positive number you entered is:", number)
+
+
+7- consider the below list of list conatins following information :
+
+1. The name of a university 
+2. The total number of enrolled students
+3. The annual tuition fees
+
+universities = [
+['California Institute of Technology', 2175, 37704],
+['Harvard', 19627, 39849],
+['Massachusetts Institute of Technology', 10566, 40732],
+['Princeton', 7802, 37000],
+['Rice', 5879, 35551],
+['Stanford', 19535, 40569],
+['Yale', 11701, 40500]
+]
+
+write a program to print follwoing information :
+1- a list of all the universitites  : ['California Institute of Technology','Harvard',..so on]
+2- total number of student entrolled in all the unversities together 
+3- mean of tuition fees
+
+solution:
+universities = [
+    ['California Institute of Technology', 2175, 37704],
+    ['Harvard', 19627, 39849],
+    ['Massachusetts Institute of Technology', 10566, 40732],
+    ['Princeton', 7802, 37000],
+    ['Rice', 5879, 35551],
+    ['Stanford', 19535, 40569],
+    ['Yale', 11701, 40500]
+]
+
+# 1. List of all universities
+university_names = []
+for university in universities:
+    university_names.append(university[0])
+print("List of all universities:", university_names)
+
+# 2. Total number of students enrolled in all universities
+total_students = 0
+for university in universities:
+    total_students += university[1]
+print("Total number of students enrolled in all universities:", total_students)
+
+# 3. Mean of tuition fees
+tuition_fees = []
+for university in universities:
+    tuition_fees.append(university[2])
+mean_tuition = sum(tuition_fees) / len(tuition_fees)
+print("Mean of tuition fees:", mean_tuition)
+
+
+
+
+8- write a program to convert above universities list to a dictionary. the keys should be the name of the university
+
+solution:
+
+universities = [
+    ['California Institute of Technology', 2175, 37704],
+    ['Harvard', 19627, 39849],
+    ['Massachusetts Institute of Technology', 10566, 40732],
+    ['Princeton', 7802, 37000],
+    ['Rice', 5879, 35551],
+    ['Stanford', 19535, 40569],
+    ['Yale', 11701, 40500]
+]
+
+universities_dict = {}
+for university in universities:
+    name = university[0]
+    attributes = {
+        'total_students': university[1],
+        'tuition_fees': university[2]
+    }
+    universities_dict[name] = attributes
+
+
+9-  write a program that reverses a given string. For example, if the input is "Hello" from user, the output should be "olleH"
+
+solution 1 :
+string = input("Enter a string: ")  # Get the string input from the user
+
+reversed_string = ""
+for char in string:
+    reversed_string = char + reversed_string
+
+print("Reversed string:", reversed_string)
+
+
+solution2 : using indexing (double colon):
+
+string = input("Enter a string: ")  # Get the string input from the user
+
+reversed_string = string[::-1]  # Use slicing to reverse the string
+
+print("Reversed string:", reversed_string)
+
+
+
+
+10- write a program that finds the largest number in a list(unsorted) of integers without using sort/sorted method.
+solution:
+
+numbers = [9, 4, 7, 2, 1, 5, 8, 3, 6]  # Example list of numbers
+
+largest_number = numbers[0]  # Assume the first number is the largest
+
+for number in numbers:
+    if number > largest_number:
+        largest_number = number
+
+print("Largest number:", largest_number)
+

@@ -1,0 +1,18 @@
+note : use the orders and returns dataset 
+
+1- write a program to get category wise sales of orders that were not returned
+
+2- write a program to get city wise count of return orders
+
+3- write a program to print cities where we have all 3 kinds of returns (others,bad quality,wrong items)
+
+4- write a program to find cities where not even a single order was returned.
+
+5- write a program to find top 3 cities by sales
+
+6- write a program to get order ids whos return reason is not known (nan)
+
+7- write a program to fill unknown return reason to a default value 'others'
+
+8- write a program to find avg sales and avg profit for each category
+

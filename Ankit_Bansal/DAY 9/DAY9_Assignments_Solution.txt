@@ -1,0 +1,184 @@
+Note : use the orders dataset for below problems:
+
+1- create a new column in the orders dataframe with name profit_flag. Set its value as 1 if profit is greater than 0 else set 0.
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Set the 'profit_flag' column value based on the 'profit' values
+df.loc[df['profit'] > 0, 'profit_flag'] = 1
+df.loc[df['profit'] <= 0, 'profit_flag'] = 0
+
+# Display the modified DataFrame
+print(df)
+
+
+2- in the orders data frame rename column names to upper case ..eg order_id should be ORDER_ID
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Rename the column names to uppercase
+df.columns = df.columns.str.upper()
+
+# Display the modified DataFrame
+print(df)
+
+
+3- again change the column names back to lower case
+
+df.columns = df.columns.str.lower()
+
+4- sort the dataframe column by profit in descending order 
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Sort the DataFrame by the 'profit' column in descending order
+df.sort_values('profit', ascending=False, inplace=True)
+
+
+
+
+5- sort the dataframe column by sales in ascending order , in case of a tie it should be sorted by profit in descending order 
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Sort the DataFrame by 'sales' column in ascending order and 'profit' column in descending order
+df.sort_values(['sales', 'profit'], ascending=[True, False],inplace=True)
+
+
+
+6- reset the index to original state
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Sort the DataFrame by its index in ascending order
+df.sort_index(inplace=True)
+
+
+
+
+7- create a column as profit_category . sets it value as below:
+
+if profit < 0 then 'loss'
+if profit between 0 and 100 then 'low profit' 
+if profit between 100 and 500 then 'medium profit'
+else high profit 
+
+#method 1
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Create the 'profit_category' column based on profit values
+df.loc[df['profit'] < 0, 'profit_category'] = 'loss'
+df.loc[(df['profit'] >= 0) & (df['profit'] <= 100), 'profit_category'] = 'low profit'
+df.loc[(df['profit'] > 100) & (df['profit'] <= 500), 'profit_category'] = 'medium profit'
+df.loc[df['profit'] > 500, 'profit_category'] = 'high profit'
+
+# Display the modified DataFrame
+print(df)
+
+
+##method2 using apply
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Define a function to categorize the profit
+def categorize_profit(profit):
+    if profit < 0:
+        return 'loss'
+    elif profit <= 100:
+        return 'low profit'
+    elif profit <= 500:
+        return 'medium profit'
+    else:
+        return 'high profit'
+
+# Apply the categorize_profit function to create the 'profit_category' column
+df['profit_category'] = df['profit'].apply(categorize_profit)
+
+# Display the modified DataFrame
+print(df)
+
+
+8- create a new column sales_profit_ratio and set its value as (profit/sales)*100
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Calculate and assign the 'sales_profit_ratio' column
+df['sales_profit_ratio'] = (df['profit'] / df['sales']) * 100
+
+# Display the modified DataFrame
+print(df)
+
+
+9- find all the orders where customer name starts with 'D' and ends with 'e'
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Filter the DataFrame for customer names starting with 'D' and ending with 'e'
+filtered_orders = df[df['customer_name'].str.startswith('D') & df['customer_name'].str.endswith('e')]
+
+# Display the filtered orders
+print(filtered_orders)
+
+
+10- create a new column order_year and populate it with year of order_date. ( hint : use the series objects slice method )
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Extract the year from 'order_date' and assign it to the 'order_year' column
+df['order_year'] = df['order_date'].str.slice(0, 4)
+
+# Display the modified DataFrame
+print(df)
+
+
+11 - delete column sales_profit_ratio from the dataframe
+df.drop(columns=['sales_profit_ratio'], inplace= True)
+
+12- delete all the rows where profit is negative 
+
+import pandas as pd
+
+# Read the 'orders.txt' file into a DataFrame
+df = pd.read_csv('orders.txt', delimiter=',')
+
+# Filter the DataFrame for rows where profit is not negative
+df = df[df['profit'] >= 0]
+
+# Reset the index of the DataFrame
+df.reset_index(drop=True, inplace=True)
+
+# Display the modified DataFrame
+print(df)
+
+

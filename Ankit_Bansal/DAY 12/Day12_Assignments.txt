@@ -1,0 +1,1 @@
+implement SCD type 2. Refer to the attached ETL_scd1_scd2.xlsx file to understand the table structure

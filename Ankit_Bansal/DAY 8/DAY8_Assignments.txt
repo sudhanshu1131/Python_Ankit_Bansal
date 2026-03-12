@@ -1,0 +1,22 @@
+use orders.txt dataset for below problems
+1- write a program to fetch all the orders with indexes  multiple of 100 eg : 100,200,300,400..... . Display order_id , category and sales columns
+2- write a program to find all orders in furniture category with sales amount between 1000 and 1200
+3- write a program to find all the orders where there was a loss (profit<0) in the city of new york , Los Angeles and Seattle
+4- write a program to find unique list of cities where orders are placed for Office Supplies category.
+5- in the new york city how many orders were placed in each of the category 
+6- set the index of orders dataframe to order_id and fetch order details(all columns) of following list of orders : 
+CA-2019-115742
+CA-2020-111682
+CA-2019-149587
+US-2020-150147
+CA-2020-138520
+
+7- for the previous question display columns order id, order date , sales and category columns in the given order
+
+8- for the previous(6th) question display all the columns from order_date to city (as per the order in dataset)
+
+9- sort the index (order id) in descending order for the dataframe 
+
+10- write the result of previous question into a csv file in your local machine
+
+

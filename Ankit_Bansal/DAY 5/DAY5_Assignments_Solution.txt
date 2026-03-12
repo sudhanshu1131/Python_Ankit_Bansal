@@ -1,0 +1,206 @@
+1- for the day 4 and day 3 assignments convert all the programs to functions
+
+2- write a Python function which takes a positive number as input and return the factorial of the number.
+
+def factorial(n):
+    if n < 0:
+        return "Error: Input must be a positive number"
+    elif n == 0 or n == 1:
+        return 1
+    else:
+        result = 1
+        for i in range(2, n+1):
+            result *= i
+        return result
+
+# Example usage
+number = int(input("Enter a positive number: "))
+factorial_result = factorial(number)
+print("The factorial of {} is: {}".format(number, factorial_result))
+
+
+3- Write a Python function that accepts a string and counts the number of upper and lower case letters.
+Sample String : 'The quick Brow Fox'
+Expected Output :
+No. of Upper case characters : 3
+No. of Lower case Characters : 12
+
+def count_upper_lower(string):
+    upper_count = 0
+    lower_count = 0
+
+    for char in string:
+        if char.isupper():
+            upper_count += 1
+        elif char.islower():
+            lower_count += 1
+
+    return upper_count, lower_count
+
+# Example usage
+sample_string = 'The quick Brow Fox'
+upper, lower = count_upper_lower(sample_string)
+print("No. of Upper case characters:", upper)
+print("No. of Lower case characters:", lower)
+
+
+4- Write a Python function that takes a list and returns a new list with distinct elements from the first list.
+Sample List : [1,2,3,3,3,3,4,5]
+Unique List : [1, 2, 3, 4, 5]
+
+def get_unique_list(input_list):
+    unique_list = []
+
+    for item in input_list:
+        if item not in unique_list:
+            unique_list.append(item)
+
+    return unique_list
+
+# Example usage
+sample_list = [1, 2, 3, 3, 3, 3, 4, 5]
+result = get_unique_list(sample_list)
+print("Unique List:", result)
+
+
+5- Write a Python function that checks whether a passed string is a palindrome or not.
+Note: A palindrome is a word, phrase, or sequence that reads the same backward as forward, e.g., madam.
+
+def is_palindrome(string):
+    string = string.lower()  # Convert the string to lowercase for case insensitivity
+    reversed_string = string[::-1]  # Reverse the string
+
+    return string == reversed_string
+
+# Example usage
+input_string = input("Enter a string: ")
+if is_palindrome(input_string):
+    print("The string is a palindrome.")
+else:
+    print("The string is not a palindrome.")
+
+
+6- Write a Python program that accepts a hyphen-separated sequence of words as input and prints the words in a hyphen-separated sequence after sorting them alphabetically.
+Sample Items : green-red-yellow-black-white
+Expected Result : black-green-red-white-yellow
+
+sequence = input("Enter a hyphen-separated sequence of words: ")
+words = sequence.split('-')  # Split the sequence into individual words
+
+sorted_words = sorted(words)  # Sort the words alphabetically
+
+result = '-'.join(sorted_words)  # Join the sorted words with hyphens
+
+# Alternative method without using join()
+result = ''
+for word in sorted_words:
+    result += word + '-'
+
+result = result.rstrip('-')  # Remove the trailing hyphen
+
+print("Sorted hyphen-separated sequence: ", result)
+
+
+7- write a python function that accepts a string and prints the count of occurence of each characters
+sample string: aabccda
+expected result:
+a -> 3
+b-> 1
+c-> 2
+d -> 1
+
+def count_characters(string):
+    character_count = {}
+
+    for char in string:
+        if char in character_count:
+            character_count[char] += 1
+        else:
+            character_count[char] = 1
+
+    for char, count in character_count.items():
+        print(char, "->", count)
+
+# Example usage
+input_string = input("Enter a string: ")
+count_characters(input_string)
+
+
+8- write a function called is_prime that takes an integer as an argument and returns True if it is a prime number, and False otherwise.
+
+def is_prime(number):
+    if number <= 1:
+        return False
+
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            return False
+
+    return True
+
+# Example usage
+input_number = int(input("Enter a number: "))
+if is_prime(input_number):
+    print("The number is prime.")
+else:
+    print("The number is not prime.")
+
+
+9- write a function called generate_fibonacci that takes an integer n as input and returns a list of the first n Fibonacci numbers.
+
+def generate_fibonacci(n):
+    fibonacci_sequence = []
+
+    if n >= 1:
+        fibonacci_sequence.append(0)
+    if n >= 2:
+        fibonacci_sequence.append(1)
+
+    for i in range(2, n):
+        fibonacci_sequence.append(fibonacci_sequence[i-1] + fibonacci_sequence[i-2])
+
+    return fibonacci_sequence
+
+# Example usage
+input_n = int(input("Enter a number: "))
+fibonacci_numbers = generate_fibonacci(input_n)
+print("Fibonacci sequence:", fibonacci_numbers)
+
+
+10- Write a function called capitalize_odd_letters that takes a string as input and returns the same string with the odd-indexed letters capitalized.
+
+def capitalize_odd_letters(string):
+    capitalized_string = ""
+
+    for i in range(len(string)):
+        if i % 2 == 1:  # Check if the index is odd
+            capitalized_string += string[i].upper()
+        else:
+            capitalized_string += string[i]
+
+    return capitalized_string
+
+# Example usage
+input_string = input("Enter a string: ")
+result = capitalize_odd_letters(input_string)
+print("Modified string:", result)
+
+
+11- write a function called find_common_elements that takes two lists as input and returns a new list containing the common elements between the two lists.
+
+def find_common_elements(list1, list2):
+    common_elements = []
+
+    for element in list1:
+        if element in list2:
+            common_elements.append(element)
+
+    return common_elements
+
+# Example usage
+input_list1 = [1, 2, 3, 4, 5]
+input_list2 = [4, 5, 6, 7, 8]
+result = find_common_elements(input_list1, input_list2)
+print("Common elements:", result)
+
+

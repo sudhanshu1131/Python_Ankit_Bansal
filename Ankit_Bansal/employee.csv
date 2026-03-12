@@ -1,0 +1,12 @@
+﻿emp_id,emp_name,dept_id,salary,manager_id,age,Dob,dept
+1,Ankit,100,12000,4,39,1/18/1987,Analytics
+2,Mohit,100,18000,5,48,1/18/1978,Analytics
+3,Vikas,100,12000,4,37,1/18/1989,Analytics
+4,Rohit,100,6000,2,16,1/18/2010,Analytics
+5,Mudit,200,12000,6,55,1/18/1971,IT
+6,Agam,200,12000,2,14,1/18/2012,IT
+7,Sanjay,200,9000,2,13,1/18/2013,IT
+8,Ashish,200,5000,2,12,1/18/2014,IT
+9,Mukesh,300,6600,6,51,1/18/1975,HR
+10,Rakesh,500,7000,6,50,1/18/1976,NULL
+,,,,,,,
